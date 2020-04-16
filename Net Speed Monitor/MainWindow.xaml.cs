@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -166,6 +167,15 @@ namespace Net_Speed_Monitor
                 {
                     key.DeleteValue("Net Speed Monitor", false);
                 }
+            }
+        }
+
+        private async void DonateClick(object sender, RoutedEventArgs e)
+        {
+            using (WebClient wc = new WebClient())
+            {
+                string page = await wc.DownloadStringTaskAsync("https://raw.githubusercontent.com/VarunSaiTeja/Hosting/master/Donation.txt");
+                Process.Start(page);
             }
         }
     }

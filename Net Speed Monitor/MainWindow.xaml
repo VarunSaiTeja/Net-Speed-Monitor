@@ -27,6 +27,7 @@
                 <MenuItem x:Name="AutoStart" Header="Auto Start" Click="AutoStartClick" IsCheckable="True"/>
                 <MenuItem x:Name="Adapter" Header="Adapter"/>
                 <MenuItem Header="Exit" Click="ExitClick" IsCheckable="False"/>
+                <MenuItem Header="Donate" Click="DonateClick"/>
             </ContextMenu>
         </Border.ContextMenu>
     </Border>
