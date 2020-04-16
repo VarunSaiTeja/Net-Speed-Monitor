@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Net Speed Monitor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Varun")]
 [assembly: AssemblyProduct("Net Speed Monitor")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
