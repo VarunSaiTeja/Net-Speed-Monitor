@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Net_Speed_Monitor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="100" Width="200" AllowsTransparency="True" 
+        WindowStyle="None" Background="Transparent" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Border Background="Gold">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.25*"/>
+                <ColumnDefinition Width="3.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label FontFamily="Segoe UI Symbol" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" BorderThickness="0" Background="Transparent" Content="&#xE1FD;"/>
+            <Label FontFamily="Segoe UI Symbol" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" BorderThickness="0" Background="Transparent" Content="&#xE110;"/>
+            <Label x:Name="DownLabel" Content="0 B/S" VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Grid.Column="1" Grid.Row="0"/>
+            <Label x:Name="UpLabel" Content="0 B/S" VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <Border.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="AutoStart" Header="Auto Start" Click="AutoStartClick" IsCheckable="True"/>
+                <MenuItem x:Name="Adapter" Header="Adapter"/>
+                <MenuItem Header="Exit" Click="ExitClick" IsCheckable="False"/>
+            </ContextMenu>
+        </Border.ContextMenu>
+    </Border>
 </Window>
