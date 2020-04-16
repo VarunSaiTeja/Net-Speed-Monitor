@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -172,11 +173,44 @@ namespace Net_Speed_Monitor
 
         private async void DonateClick(object sender, RoutedEventArgs e)
         {
-            using (WebClient wc = new WebClient())
+            if (InternetAvilable())
             {
-                string page = await wc.DownloadStringTaskAsync("https://raw.githubusercontent.com/VarunSaiTeja/Hosting/master/Donation.txt");
-                Process.Start(page);
+                using (WebClient wc = new WebClient())
+                {
+                    string page = await wc.DownloadStringTaskAsync("https://raw.githubusercontent.com/VarunSaiTeja/Hosting/master/Donation.txt");
+                    Process.Start(page);
+                }
+            }
+            else
+                MessageBox.Show("Internet Not Available");
+        }
+
+        public static bool InternetAvilable()
+        {
+            var request = (HttpWebRequest)WebRequest.Create("http://google.com/generate_204");
+            request.UserAgent = "Android";
+            request.KeepAlive = false;
+            request.Timeout = 1500;
+
+            try
+            {
+                using (var response = (HttpWebResponse)request.GetResponse())
+                {
+                    if (response.ContentLength == 0 && response.StatusCode == HttpStatusCode.NoContent)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
+
     }
 }
